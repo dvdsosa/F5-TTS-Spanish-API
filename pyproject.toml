@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "f5-tts-spanish"
+version = "1.0.0"
+description = "F5-TTS fine-tuned for native Spanish (Peninsular + Latin American accents), served as a local voice-cloning TTS API."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10,<3.13"
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+]
+
+dependencies = [
+    "accelerate>=0.33.0",
+    "cached_path",
+    "click",
+    "ema_pytorch>=0.5.2",
+    "huggingface-hub==0.32.0",
+    "jieba",
+    "librosa",
+    "matplotlib",
+    "num2words==0.5.13",
+    "numpy<=1.26.4",
+    "pydub",
+    "pydantic==2.10.6",
+    "pypinyin",
+    "regex",
+    "safetensors",
+    "soundfile",
+    "thefuzz",
+    "tomli",
+    "torch>=2.0.0",
+    "torchaudio>=2.0.0",
+    "torchdiffeq",
+    "tqdm>=4.65.0",
+    "transformers",
+    "transformers_stream_generator",
+    "vocos",
+    "x_transformers>=1.31.14",
+    "fastapi",
+    "uvicorn",
+    "python-multipart",
+]
+
+[project.optional-dependencies]
+# Optional: transcription of the reference audio (used when you don't provide ref_text)
+transcribe = [
+    "faster-whisper",
+]
+
+[project.urls]
+Homepage = "https://github.com/dvdsosa/F5-TTS-Spanish-API"
+Source = "https://github.com/voicepowered-ai/VoicePoweredAI_Spanish_v1"
+
+[project.scripts]
+"f5-tts-spanish-api" = "f5_tts.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Model weights (downloaded on first run)
+models/
+*.safetensors
+
+# Output audio
+*.wav
+*.mp3
+out.wav
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
